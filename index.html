@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="section">
+        <div class="container">
+            <h1 id="question-title">In web design, what does CSS stand for?</h1>
+            <div class="options">
+                <button class="but" id="optionA" onclick="checkAnswer('A')">A</button>
+                <button class="but1" id="optionA1" onclick="checkAnswer('A')">Counter Strike Source</button><br>
+
+                <button class="but" id="optionB" onclick="checkAnswer('B')">B</button>
+                <button class="but1" id="optionB1" onclick="checkAnswer('B')">Corrective Style Sheet</button><br>
+
+                <button class="but" id="optionC" onclick="checkAnswer('C')">C</button>
+                <button class="but1" id="optionC1" onclick="checkAnswer('C')">Computer Style Sheet</button><br>
+
+                <button class="but" id="optionD" onclick="checkAnswer('D')">D</button>
+                <button class="but1" id="optionD1" onclick="checkAnswer('D')">Cascading Style Sheet</button>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="previousQuestion()" class="btn btn-secondary">Previous</button>
+                <button onclick="nextQuestion()" class="btn btn-secondary">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "In web design, what does CSS stand for?",
+                options: [
+                    { text: "Counter Strike Source", isCorrect: false },
+                    { text: "Corrective Style Sheet", isCorrect: false },
+                    { text: "Computer Style Sheet", isCorrect: false },
+                    { text: "Cascading Style Sheet", isCorrect: true }
+                ]
+            },
+            {
+                question: "What does HTML stand for?",
+                options: [
+                    { text: "Hyper Text Markup Language", isCorrect: true },
+                    { text: "Home Tool Markup Language", isCorrect: false },
+                    { text: "Hyperlinks and Text Markup Language", isCorrect: false },
+                    { text: "Hyper Tool Markup Language", isCorrect: false }
+                ]
+            },
+            {
+                question: "What is the correct HTML element for the largest heading?",
+                options: [
+                    { text: "<h6>", isCorrect: false },
+                    { text: "<head>", isCorrect: false },
+                    { text: "<heading>", isCorrect: false },
+                    { text: "<h1>", isCorrect: true }
+                ]
+            },
+            {
+                question: "Which HTML attribute specifies an alternate text for an image?",
+                options: [
+                    { text: "alt", isCorrect: true },
+                    { text: "src", isCorrect: false },
+                    { text: "longdesc", isCorrect: false },
+                    { text: "title", isCorrect: false }
+                ]
+            },
+            {
+                question: "Which HTML element is used to define important text?",
+                options: [
+                    { text: "<strong>", isCorrect: true },
+                    { text: "<b>", isCorrect: false },
+                    { text: "<i>", isCorrect: false },
+                    { text: "<em>", isCorrect: false }
+                ]
+            },
+            {
+                question: "Which CSS property controls the text size?",
+                options: [
+                    { text: "font-style", isCorrect: false },
+                    { text: "text-size", isCorrect: false },
+                    { text: "font-size", isCorrect: true },
+                    { text: "text-style", isCorrect: false }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function loadQuestion(index) {
+            const question = questions[index];
+            document.getElementById('question-title').textContent = question.question;
+            document.getElementById('optionA1').textContent = question.options[0].text;
+            document.getElementById('optionB1').textContent = question.options[1].text;
+            document.getElementById('optionC1').textContent = question.options[2].text;
+            document.getElementById('optionD1').textContent = question.options[3].text;
+
+            document.getElementById('optionA').style.backgroundImage = "linear-gradient(brown,white)";
+            document.getElementById('optionB').style.backgroundImage = "linear-gradient(brown,white)";
+            document.getElementById('optionC').style.backgroundImage = "linear-gradient(brown,white)";
+            document.getElementById('optionD').style.backgroundImage = "linear-gradient(brown,white)";
+            document.getElementById('optionA1').style.backgroundColor = "white";
+            document.getElementById('optionB1').style.backgroundColor = "white";
+            document.getElementById('optionC1').style.backgroundColor = "white";
+            document.getElementById('optionD1').style.backgroundColor = "white";
+            document.getElementById('optionA1').style.color = "black";
+            document.getElementById('optionB1').style.color = "black";
+            document.getElementById('optionC1').style.color = "black";
+            document.getElementById('optionD1').style.color = "black";
+        }
+
+        function checkAnswer(option) {
+            const question = questions[currentQuestionIndex];
+            if (question.options[option.charCodeAt(0) - 65].isCorrect) {
+                document.getElementById('option' + option).style.backgroundColor = "green";
+                document.getElementById('option' + option + '1').style.backgroundColor = "green";
+                document.getElementById('option' + option + '1').style.color = "white";
+            } else {
+                document.getElementById('option' + option).style.backgroundColor = "red";
+                document.getElementById('option' + option + '1').style.backgroundColor = "red";
+                document.getElementById('option' + option + '1').style.color = "white";
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion(currentQuestionIndex);
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion(currentQuestionIndex);
+            }
+        }
+
+        window.onload = function() {
+            loadQuestion(currentQuestionIndex);
+        };
+    </script>
+</body>
+</html>

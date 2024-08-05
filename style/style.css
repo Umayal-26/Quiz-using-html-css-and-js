@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    background-image: linear-gradient(rgb(231, 226, 226),brown);
+    width: 660px;
+    box-shadow: 0px 0px 15px;
+    padding: 20px;
+    border-radius: 17px;
+}
+
+.section {
+    text-align: center;
+}
+
+.question {
+    margin-top: 30px;
+}
+
+.options {
+    align-items: center;
+}
+
+.but, .but1 {
+    margin-top: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    font-weight: bolder;
+    font-size: larger;
+    margin-top: 20px;
+}
+
+.but {
+    width: 50px;
+    font-weight: bolder;
+    border: none;
+    padding: 10px;
+    color: rgb(231, 226, 226);
+    background-color: brown;
+    display: inline-block;
+    box-shadow: 0px 0px 15px;
+}
+.but:hover{
+    background-image: linear-gradient(brown,white);
+    color: brown;
+}
+h1{
+    color:rgb(131, 35, 35)
+}
+
+.but1 {
+    width: 450px;
+    background-color: white;
+    height: 40px;
+    display: inline-block;
+    
+}
+.but1:hover{
+    box-shadow: 1px 1px 7px;
+}
+
+.nav-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.btn-secondary{
+    padding: 10px;
+    background-image: linear-gradient(brown,white);
+    border-radius:8px;
+    border: none;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px;
+}
+.btn-secondary:hover{
+    background-image: linear-gradient(brown,white);
+    color: brown;
+    font-weight: bolder;
+}
